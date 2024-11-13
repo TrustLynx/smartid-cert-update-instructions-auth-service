@@ -3,7 +3,7 @@ Starting November 27, 2024, all new Smart-ID accounts will be issued using the n
 This change, scheduled for November 27, 2024, affects all information systems and applications that provide digital authentication or signatures using the Smart-ID service provided by SK.
 ## TL authentication service adjustment instructions
 ### Authentication service that is already deployed via docker-compose
--- inside docker-compose.yml file change authentication service image to trustlynx/dmss-authentication-service:24.0.5. Example:
+- inside docker-compose.yml file change authentication service image to trustlynx/dmss-authentication-service:24.0.5. Example:
 
 ```
     dmss-authentication-service:
@@ -18,9 +18,9 @@ This change, scheduled for November 27, 2024, affects all information systems an
         image: 'trustlynx/dmss-authentication-service:24.0.5'
 ```
 
--- take default **application.yml** file from current repository.
--- fill authentication parties credentials (sections like smartid, mobileid, lvrtc e.t.c.) from your existing **application.yml** to default **application.yml** that you take from current repository. 
--- update trustedCertificates value inside **application.yml**. Example:
+- take default **application.yml** file from current repository.
+- fill authentication parties credentials (sections like smartid, mobileid, lvrtc e.t.c.) from your existing **application.yml** to default **application.yml** that you take from current repository. 
+- update trustedCertificates value inside **application.yml**. Example:
 
 ```
 PROD
