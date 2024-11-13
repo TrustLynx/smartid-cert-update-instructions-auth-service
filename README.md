@@ -1,0 +1,1 @@
+# smartid-cert-update-instructions-auth-service
