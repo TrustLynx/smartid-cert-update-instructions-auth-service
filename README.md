@@ -19,7 +19,7 @@ This change, scheduled for November 27, 2024, affects all information systems an
 ```
 
 - take default **application.yml** file from current repository.
-- fill authentication parties credentials (sections like smartid, mobileid, lvrtc e.t.c.) from your existing **application.yml** to default **application.yml** that you take from current repository. 
+- fill authentication parties credentials (sections like smartid, mobileid, lvrtc e.t.c.) from your existing **application.yml** to default **application.yml** that you have taken from current repository. 
 - update trustedCertificates value inside **application.yml**. Example:
 
 ```
