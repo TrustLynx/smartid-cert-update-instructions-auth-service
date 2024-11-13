@@ -1,0 +1,147 @@
+spring:
+  task:
+    execution:
+      pool:
+        core-size: 100
+        max-size: 200
+        queue-capacity: 100
+        keep-alive: "10s"
+  sleuth:
+    propagation:
+      type: CUSTOM
+    trace-id128: true
+    supports-join: false
+  # Uncomment if you need use Zipkin
+  #  zipkin:
+  #    base-url: http://localhost:9411/zipkin/
+  #management:
+  #  tracing:
+  #    sampling:
+  #      probability: 1.0
+  application:
+    name: dmss-authentication-service
+  threads:
+    virtual:
+      enabled: true
+# Standard spring configurations available
+
+server:
+  tomcat:
+    max-threads: 400
+    threads:
+      max: 400
+  #  # Server port container and signature service published
+  port: 8089
+# http proxy srever paramteters if used
+#http:
+#  proxyhost: localhost
+#  proxyport: 8088
+# Digidoc4 settings, more info https://github.com/open-eid/digidoc4j
+digidoc4j:
+  configuration:
+    # Digidoc4j mode, PROD or TEST
+    mode: TEST
+    # Custom digidoc4j configuration file, more info http://open-eid.github.io/digidoc4j/org/digidoc4j/Configuration.html
+    #file: classpath:digidoc4j-custom.yaml
+    # Preferred AIA ocsp source or SK payed service. true - AIA OCSP, false SK payed service
+    preferAiaOcsp: true
+    issuers:
+  # Smart-ID configuration
+smartId:
+  # Smart-ID Service url. PROD URL https://rp-api.smart-id.com/v2
+  hostUrl: https://sid.demo.sk.ee/smart-id-rp/v2/
+  # Smart-ID customer unique party uid provided by SK or DM
+  relyingPartyUUID: 00000000-0000-0000-0000-000000000000
+  # Smart-ID customer party name have to be registered in SK
+  relyingPartyName: DEMO
+  # Smart-ID default display text (short message interaction)
+  displayText: Autorizācija
+  # Smart-ID default display long text (long message interaction)
+  displayTextLong: Autorizācija
+  # Smart-ID app open delay, needed for see control code on mobile application usage
+  delay: 3000
+  # Trusted CA certificates, PRODUCTION MODE REPLACE WITH: trustedCertificates: classpath:trusted_certificates.jks
+  trustedCertificates: classpath:trusted_certificates_test.jks
+  # Smart-ID interactions, more info https://github.com/SK-EID/smart-id-documentation#3-use-case-realization-models
+  interactions:
+    - # Ineraction constant. Not to change!
+      interactionName: "Interaction.confirmationMessageAndVerificationCodeChoice"
+      # Current interaction default message
+      defaultText: "confirmationMessageAndVerificationCodeChoice"
+      # Technical value, message max size
+      maxsize: 200
+      # true if current interaction enabled, false if current interaction disabled. At least one interaction has to be enabled
+      enabled: true
+    - interactionName: "Interaction.confirmationMessage"
+      defaultText: "confirmationMessage"
+      maxsize: 200
+      enabled: true
+    - interactionName: "Interaction.verificationCodeChoice"
+      defaultText: "verificationCodeChoice"
+      maxsize: 60
+      enabled: true
+    - interactionName: "Interaction.displayTextAndPIN"
+      defaultText: "displayTextAndPIN"
+      maxsize: 60
+      enabled: true
+# Mobile-ID settings
+mobileId:
+  # Mobile-ID SMS Encoding: GSM7 or UCS2
+  midDisplayTextFormat: GSM7
+  # Mobile-ID customer party name have to be registered in SK
+  relyingPartyName: DEMO
+  # Mobile-ID service URL, production url https://mid.sk.ee/mid-api
+  hostUrl: https://tsp.demo.sk.ee/mid-api
+  # Mobile-ID customer unique party uid provided by SK or DM
+  relyingPartyUUID: 00000000-0000-0000-0000-000000000000
+  # Default display text in mobile on PIN request
+  displayText: "TEST Allkirjasta dokument?"
+  # Default Mobile-ID account country, overrided by authentication request
+  defaultCountry: EE
+  # Default Mobile-ID language, overrided by authentication request
+  defaultLanguage: ENG
+web-eid:
+  site-origin: https://digitalmind.northeurope.cloudapp.azure.com, https://dmee-keit-new.digitalmind.lv
+
+# Hazelcast configuration
+hazelcast:
+  # Session data expire time in minutes
+  expireInminutes: 3
+  # Members list
+  members: localhost:5775
+  # Current hazelcast node port
+  port: 5775
+  # Multicast auto-discovery mechanism enabled or not
+  useMulticastConfig: false
+  # use tcp/ip addressing
+  useTcpIpConfig: true
+  # Hazelcast kubernetes configuration
+  kubernetes:
+    enabled: false
+    service-dns: dmss-authentication-headless.default.svc.cluster.local
+
+#springdoc:
+#  swagger-ui:
+#    use-root-path: true
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{X-Session-ID} %X{X-Request-ID} %X{traceId} %X{spanId}] %-5p [%t] %logger{36} - %msg%n'
+  level:
+    root: debug
+    ee:
+      digitalmind: info
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  atlas:
+    metrics:
+      export:
+        enabled: false
+
+
