@@ -32,6 +32,7 @@ smartId:
   trustedCertificates: file:classpathtrusted_certificates_test.jks
 ```
 ## Switching from TEST to PROD (application.yml)
+- Empty application.yml from current repository is set to have TEST mode one by default
 - Inside application.yml switch "digidoc4j - configuration - mode" value to PROD
 
 ```
