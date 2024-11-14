@@ -45,7 +45,7 @@ smartId:
 
 TEST
 smartId:
-  trustedCertificates: file:classpathtrusted_certificates_test.jks
+  trustedCertificates: classpathtrusted_certificates_test.jks
 ```
 ## Switching from TEST to PROD (application.yml)
 - Empty application.yml from current repository is set to have TEST mode enabled by default
