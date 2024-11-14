@@ -2,7 +2,7 @@
 Starting November 27, 2024, all new Smart-ID accounts will be issued using the new intermediate certificates “SK ID Solutions EID-Q 2024E” (for qualified accounts) and “SK ID Solutions EID-NQ 2021E” (for non-qualified accounts).
 This change, scheduled for November 27, 2024, affects all information systems and applications that provide digital authentication or signatures using the Smart-ID service provided by SK.
 
-## TL signing services service affect
+## TL signing service affect
 Signing service if affected in case Digidoc4J trustlist cache updated manually and or EU LOTL and EE trustlist loading is prohibited by network limitations. Otheriweise ner certificates are already included national trustlist upfornt and cache updated automatically.
 To validate if manual cache update acivated check from "container and signature service" application.yml file if configuration (digidoc4j.configuration.file) is enabledand in target configuration file (digidoc4j-custom.yaml) enabled parameter "TSL_CACHE_EXPIRATION_TIME"
 
