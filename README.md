@@ -32,7 +32,7 @@ smartId:
   trustedCertificates: file:classpathtrusted_certificates_test.jks
 ```
 ## Switching from TEST to PROD (application.yml)
-- Switch "digidoc4j - configuration" - mode value to PROD
+- Inside application.yml switch "digidoc4j - configuration - mode" value to PROD
 
 ```
 digidoc4j:
@@ -40,11 +40,11 @@ digidoc4j:
     # Digidoc4j mode, PROD or TEST
     mode: PROD
 ```
-- Navigate thrue authentication tools and change service URLs / credentials from DEMO / TEST to PROD. For example:
+- Navigate application.yml thrue authentication tools (smartid / mobileid / lvrtc e.t.c.) and change service URLs / credentials from DEMO / TEST to PROD. For example:
 
 ```
 smartId:
   # Smart-ID Service url. PROD URL https://rp-api.smart-id.com/v2
-  #hostUrl: https://sid.demo.sk.ee/smart-id-rp/v2/
-  hostUrl:  https://rp-api.smart-id.com/v2
+  #hostUrl: https://sid.demo.sk.ee/smart-id-rp/v2/ - IT WAS DEMO ADDRESS BEFORE
+  hostUrl:  https://rp-api.smart-id.com/v2  #NOW HOST IS SWITCHED TO PROD
 ```
