@@ -31,8 +31,8 @@ TEST
 smartId:
   trustedCertificates: file:classpathtrusted_certificates_test.jks
 ```
-## Switching from TEST to PROD
-- Switch digidoc4j - configuration - mode value to PROD
+## Switching from TEST to PROD (application.yml)
+- Switch "digidoc4j - configuration" - mode value to PROD
 
 ```
 digidoc4j:
