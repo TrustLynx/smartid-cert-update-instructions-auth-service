@@ -65,3 +65,5 @@ smartId:
   #hostUrl: https://sid.demo.sk.ee/smart-id-rp/v2/ - IT WAS DEMO ADDRESS BEFORE
   hostUrl:  https://rp-api.smart-id.com/v2  #NOW HOST IS SWITCHED TO PROD
 ```
+## DEMO User data for TEST mode authentication / signing tests
+User data for tests is available via https://github.com/SK-EID/smart-id-documentation/wiki/Environment-technical-parameters#test-accounts-for-automated-testing
