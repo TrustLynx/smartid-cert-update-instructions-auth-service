@@ -36,7 +36,7 @@ TSL_CACHE_EXPIRATION_TIME: 8640000000
 
 - take default **application.yml** file from current repository.
 - fill authentication parties credentials (sections like smartid, mobileid, lvrtc e.t.c.) from your existing **application.yml** to default **application.yml** that you have taken from current repository. Idea is to copy all your auth method secrets to default **application.yml**.
-- update trustedCertificates value inside **application.yml**. Example:
+- update trustedCertificates value inside **application.yml** under smartId section. Example:
 
 ```
 PROD
